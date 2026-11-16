@@ -2,7 +2,7 @@
 tamper-evident, hash-chained ledger. RAG (LangChain splitter + TF-IDF retrieval)
 orchestrated by a LangGraph pipeline, with a blockchain-style audit anchor."""
 import json, os, re, sqlite3, time
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, render_template
 from accounts import hash_password, verify_password, issue_token, read_token
 import ledger, llm, rag, graph as g
 
@@ -73,19 +73,19 @@ def rate_ok(key, limit, window):
 
 @app.get("/")
 def index():
-    return send_from_directory("templates", "index.html")
+    return render_template("index.html")
 @app.get("/login")
 def login_page():
-    return send_from_directory("templates", "login.html")
+    return render_template("login.html")
 @app.get("/register")
 def register_page():
-    return send_from_directory("templates", "register.html")
+    return render_template("register.html")
 @app.get("/privacy")
 def privacy():
-    return send_from_directory("templates", "privacy.html")
+    return render_template("privacy.html")
 @app.get("/about")
 def about():
-    return send_from_directory("templates", "about.html")
+    return render_template("about.html")
 
 @app.post("/api/auth/register")
 def register():
