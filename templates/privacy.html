@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Privacy · ProofLoom{% endblock %}{% block body %}
+<div class="card"><h2>Privacy policy</h2>
+<p>ProofLoom stores, per account: your email and name (optional), the documents you add, the questions you ask, the answers produced, and the ledger blocks that anchor them.</p>
+<p>Documents and runs are scoped to your account and never shared with other accounts. Passwords are hashed with PBKDF2 (260,000 iterations). Sessions are signed tokens valid 30 days; signing out or deleting your account invalidates them.</p>
+<p>Deleting your account removes your documents, runs and access immediately. Ledger blocks are append-only by design; a deletion is recorded as a new block, and no personal text remains in anchor payloads.</p>
+<p>No analytics, no trackers, no third-party sharing. If an AI model key is configured server-side, your question and retrieved chunks are sent to that model provider to compose the answer; in extractive mode nothing leaves the service.</p>
+<p>Questions about your data: <a href="https://shlok.is-a.dev">shlok.is-a.dev</a>.</p></div>
+{% endblock %}

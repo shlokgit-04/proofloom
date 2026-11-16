@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}About · ProofLoom{% endblock %}{% block body %}
+<div class="card"><h2>About ProofLoom</h2>
+<p>ProofLoom is a retrieval-augmented answer engine where provenance is first-class. Documents are split with LangChain, retrieval runs over a per-account index, and a LangGraph pipeline grades the evidence and composes a cited answer — generatively when a zero-cost model is configured, extractively otherwise. Every run is then anchored as a block on a hash-chained, proof-of-work ledger that anyone on the account can verify with one click.</p>
+<p>Four threads, one fabric: RAG, LangChain, LangGraph, Blockchain.</p>
+<p>made by <a href="https://shlok.is-a.dev">Shlok V.</a></p></div>
+{% endblock %}

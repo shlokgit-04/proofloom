@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block title %}ProofLoom — provable answers{% endblock %}{% block body %}
+<div id="app" class="hidden">
+<h1>Answers you can prove</h1><p class="sub">Add documents, ask questions, and every answer is anchored on a tamper-evident ledger you can verify yourself.</p>
+<div class="card"><h2>1 · Your knowledge base</h2>
+<label for="doc-title">Document title</label><input id="doc-title" placeholder="e.g. Product spec v2">
+<label for="doc-text">Document text</label><textarea id="doc-text" placeholder="Paste notes, specs, policies..."></textarea>
+<div class="row" style="margin-top:10px"><button id="add-doc">Add document</button><button id="refresh-docs" class="ghost">Refresh</button></div>
+<div class="err" id="doc-err"></div><div id="docs"></div></div>
+<div class="card"><h2>2 · Ask</h2>
+<label for="question">Question</label><textarea id="question" style="min-height:70px" placeholder="What does the spec say about rate limits?"></textarea>
+<label for="model">Model (generative answers need a configured free key; otherwise answers are extractive)</label><select id="model"><option value="">Auto</option></select>
+<div class="row" style="margin-top:10px"><button id="ask">Ask with proof</button></div>
+<div class="err" id="q-err"></div>
+<div id="result"></div></div>
+<div class="card"><h2>3 · The ledger</h2><p class="sub">Every answer is a block: hash-chained, proof-of-work stamped, tamper-evident.</p>
+<div class="row"><button id="verify">Verify whole chain</button><span id="verify-out"></span></div>
+<div id="blocks" style="margin-top:12px"></div></div>
+<div class="card"><h2>Recent runs</h2><div id="runs"></div></div>
+</div>
+<div id="gate" class="card"><h2>Sign in to continue</h2><p class="sub">Your knowledge base, runs and ledger view are per-account.</p><div class="row"><a href="/login"><button>Log in</button></a><a href="/register"><button class="ghost">Create account</button></a></div></div>
+{% endblock %}{% block scripts %}<script src="/static/app.js"></script>{% endblock %}
